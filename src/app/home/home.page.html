@@ -13,21 +13,24 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <div class="col-menu">
+        <div class="col-menu"
+             (click)="gotoAccountPage()">
           <fa-icon class="menu-icon"
                    icon="id-card-clip"></fa-icon>
           <h5>บัญชีของฉัน</h5>
         </div>
       </ion-col>
       <ion-col>
-        <div class="col-menu">
+        <div class="col-menu"
+             (click)="gotoCameraPage()">
           <fa-icon class="menu-icon"
                    icon="camera"></fa-icon>
           <h5>กล้องถ่ายรูป</h5>
         </div>
       </ion-col>
       <ion-col>
-        <div class="col-menu">
+        <div class="col-menu"
+             (click)="gotoQrcodePage()">
           <fa-icon class="menu-icon"
                    icon="qrcode"></fa-icon>
           <h5>QR Code</h5>
@@ -36,7 +39,8 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <div class="col-menu">
+        <div class="col-menu"
+             (click)="gotoNewsPage()">
           <fa-icon class="menu-icon"
                    icon="newspaper"></fa-icon>
           <h5>ข่าวสาร</h5>
@@ -50,7 +54,8 @@
         </div>
       </ion-col>
       <ion-col>
-        <div class="col-menu">
+        <div class="col-menu"
+             (click)="gototodosPage()">
           <fa-icon class="menu-icon"
                    icon="list-ol"></fa-icon>
           <h5>Todos</h5>
@@ -59,21 +64,24 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <div class="col-menu">
+        <div class="col-menu"
+             (click)="gotoLoginPage()">
           <fa-icon class="menu-icon"
                    icon="arrow-right"></fa-icon>
           <h5>เข้าสู่ระบบ</h5>
         </div>
       </ion-col>
       <ion-col>
-        <div class="col-menu">
+        <div class="col-menu"
+             (click)="gotoRegisterPage()">
           <fa-icon class="menu-icon"
                    icon="registered"></fa-icon>
           <h5>ลงทะเบียน</h5>
         </div>
       </ion-col>
       <ion-col>
-        <div class="col-menu">
+        <div class="col-menu"
+             (click)="gotoYoutubePage()">
           <fa-icon class="menu-icon"
                    [icon]="['fab', 'youtube']"></fa-icon>
           <h5>Youtube</h5>
