@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Youtube"
+                       defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <h2>Title: {{ item.title }}</h2>
+    <iframe [src]="item.url | safe"></iframe>
+    <p>{{ item.description }}</p>
+  </div>
+</ion-content>
