@@ -1,0 +1,19 @@
+#container{
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#flex-result{
+  position: relative;
+
+  .btn-remove{
+    position: absolute;
+    color: #fff;
+    top: 6%;
+    right: 8%;
+  }
+}

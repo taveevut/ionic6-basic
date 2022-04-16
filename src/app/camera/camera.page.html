@@ -3,10 +3,27 @@
     <ion-buttons slot="start">
       <ion-back-button text="กล้องถ่ายรูป"
                        defaultHref="/"></ion-back-button>
+
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <ion-button color="dark">
+      <ion-icon name="camera-outline"></ion-icon> ถ่ายรูป
+    </ion-button>
 
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-card id="flex-result">
+            <ion-icon name="trash-outline"
+                      class="btn-remove"></ion-icon>
+            <img src="https://d5nunyagcicgy.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg">
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
