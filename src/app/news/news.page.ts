@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {LoadingController} from '@ionic/angular';
+import {finalize} from 'rxjs/operators';
 import {Articles} from './models/news';
 import {NewsService} from './services/news.service';
 
@@ -11,14 +13,21 @@ export class NewsPage implements OnInit {
   news: Articles[];
 
   constructor(
-    private service: NewsService
+    private service: NewsService,
+    public loadingCtrl: LoadingController
   ) { }
 
-  ngOnInit() {
-    this.service.get('https://newsapi.org/v1/articles?source=techcrunch&apiKey=ab0d4aca4cea481e8157d31c68eb2b23').subscribe((res) => {
-      console.log(res);
-      this.news = <Articles[]>res.articles;
+  async ngOnInit() {
+    const loading = await this.loadingCtrl.create({
+      message: 'เตรียมข้อมูล...',
     });
+    await loading.present();
+
+    this.service.get('https://newsapi.org/v1/articles?source=techcrunch&apiKey=ab0d4aca4cea481e8157d31c68eb2b23')
+      .pipe(finalize(() => loading.dismiss()))
+      .subscribe((res) => {
+        this.news = <Articles[]>res.articles;
+      });
   }
 
 }
