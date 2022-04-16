@@ -1,12 +1,13 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { CameraPageRoutingModule } from './camera-routing.module';
+import {CameraPageRoutingModule} from './camera-routing.module';
 
-import { CameraPage } from './camera.page';
+import {Camera} from '@awesome-cordova-plugins/camera/ngx';
+import {CameraPage} from './camera.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { CameraPage } from './camera.page';
     IonicModule,
     CameraPageRoutingModule
   ],
-  declarations: [CameraPage]
+  declarations: [CameraPage],
+  providers: [
+    Camera
+  ]
 })
-export class CameraPageModule {}
+export class CameraPageModule { }

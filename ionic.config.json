@@ -1,7 +1,9 @@
 {
   "name": "ionic6-basic",
   "integrations": {
-    "capacitor": {},
+    "capacitor": {
+      "enabled": false
+    },
     "cordova": {}
   },
   "type": "angular"
