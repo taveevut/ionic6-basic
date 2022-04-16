@@ -52,11 +52,10 @@ export class CameraPage implements OnInit {
         {
           text: 'ตกลง',
           handler: () => {
-            // alert(this.photos.toString());
-            alert(index + ' => ' + this.photos[index].toString());
-
             console.log('Agree');
+
             this.photos.slice(index, 1);
+            this.photos.splice(index, 1);
           }
         }
       ]
