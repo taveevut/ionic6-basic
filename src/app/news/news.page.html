@@ -9,4 +9,16 @@
 
 <ion-content>
 
+  <ion-card *ngFor="let item of news">
+    <img [src]="item.urlToImage">
+    <ion-card-header>
+      <ion-card-subtitle>{{ item.author }} | {{ item.publishedAt | date: 'dd/MM/y' }}</ion-card-subtitle>
+      <ion-card-title>{{ item.title }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ item.description }}
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
