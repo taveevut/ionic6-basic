@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-youtube',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./youtube.page.scss'],
 })
 export class YoutubePage implements OnInit {
-
+  url: string;
   constructor() { }
 
   ngOnInit() {
+    this.url = 'https://www.youtube.com/embed/WNKGj-kHXKg';
   }
 
 }

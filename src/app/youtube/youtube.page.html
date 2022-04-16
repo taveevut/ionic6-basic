@@ -7,6 +7,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <iframe [src]="url | safe"></iframe>
+  </div>
 </ion-content>

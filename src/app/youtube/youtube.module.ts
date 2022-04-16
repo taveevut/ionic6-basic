@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { YoutubePageRoutingModule } from './youtube-routing.module';
 
 import { YoutubePage } from './youtube.page';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { YoutubePage } from './youtube.page';
     IonicModule,
     YoutubePageRoutingModule
   ],
-  declarations: [YoutubePage]
+  declarations: [YoutubePage, SafePipe]
 })
 export class YoutubePageModule {}
