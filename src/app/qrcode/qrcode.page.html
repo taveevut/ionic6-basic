@@ -7,6 +7,35 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <ion-item>
+      <ion-input type="text"
+                 placeholder="ระบุข้อความ"
+                 [(ngModel)]="text">
+      </ion-input>
+    </ion-item>
+    <ion-button size="large"
+                color="light"
+                (click)="create()">
+      สร้าง QR Code
+    </ion-button>
+    <ion-button size="large"
+                (click)="scan()">
+      <ion-icon name="scan-circle-outline"></ion-icon> แสกน Code
+    </ion-button>
 
+    <ion-card *ngIf="text_qrcode">
+      <ngx-qrcode [value]="text_qrcode"></ngx-qrcode>
+      <ion-card-content>
+        <p>ผลลัพธ์: {{ text_qrcode }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="text_code">
+      <ion-card-content>
+        ผลลัพธ์จากแสกน: {{ text_code }}
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
