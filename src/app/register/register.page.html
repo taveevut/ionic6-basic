@@ -15,7 +15,8 @@
       <h1>ลงทะเบียน</h1>
     </div>
 
-    <form [formGroup]="form">
+    <form [formGroup]="form"
+          (ngSubmit)="submit()">
       <ion-list lines="full"
                 class="ion-no-margin">
         <ion-item>
