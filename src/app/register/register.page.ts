@@ -43,7 +43,6 @@ export class RegisterPage implements OnInit {
       this.service.save(this.form.value)
         .pipe(finalize(() => loading.dismiss()))
         .subscribe(async (res) => {
-          console.log(res);
           const alert = await this.alertCtrl.create({
             header: 'สำเร็จ',
             message: 'ระบบทำการบันทึกข้อมูลได้สำเร็จ',
@@ -51,6 +50,16 @@ export class RegisterPage implements OnInit {
           });
 
           await alert.present();
+        }, async (error) => {
+          if (error.status === 409) {
+            const alert = await this.alertCtrl.create({
+              header: 'ไม่สำเร็จ',
+              message: 'ข้อมูลของท่านมีอยู่ในระบบแล้ว',
+              buttons: ['ตกลง'],
+            });
+
+            await alert.present();
+          }
         });
     }
   }
