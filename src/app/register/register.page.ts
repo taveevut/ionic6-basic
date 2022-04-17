@@ -21,11 +21,11 @@ export class RegisterPage implements OnInit {
   ) {
 
     this.form = this.fb.group({
-      email: ['taveevut@gmail.com', [Validators.required, Validators.email]],
-      password: ['12345678', Validators.required],
-      name: ['Taveevut Nakomah', Validators.required],
-      job: ['Full stack-developer', Validators.required],
-      address: ['Mauritania', [Validators.required, Validators.minLength(5)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      name: ['', Validators.required],
+      job: ['', Validators.required],
+      address: ['', [Validators.required, Validators.minLength(5)]],
     });
 
   }
