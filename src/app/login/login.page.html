@@ -7,6 +7,36 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <div class="ion-text-center ion-margin-top">
+      <img src="../../assets/images/icon.png"
+           height="150">
+      <h1>เข้าสู่ระบบ</h1>
+    </div>
 
+    <form [formGroup]="form"
+          (ngSubmit)="submit()">
+      <ion-list lines="full"
+                class="ion-no-margin">
+        <ion-item>
+          <ion-label position="stacked">ที่อยู่อีเมล์</ion-label>
+          <ion-input formControlName="email"
+                     placeholder="ระบุที่อยู่อีเมล์"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">รหัสผ่าน</ion-label>
+          <ion-input formControlName="password"
+                     placeholder="ระบุรหัสผ่าน"
+                     type="password"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <div class="ion-text-center">
+        <ion-button type="submit">ตกลง</ion-button>
+        <ion-button type="button"
+                    color="light">ยกเลิก</ion-button>
+      </div>
+    </form>
+  </div>
 </ion-content>
