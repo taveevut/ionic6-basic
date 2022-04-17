@@ -9,18 +9,22 @@ import {environment} from './../../../environments/environment';
 })
 export class RegisterService {
 
-  private url = environment.appUrl;
-  private path = '/member/register';
+  private root = environment.appUrl;
+  private url = '/member/register';
 
   constructor(
     private http: HttpClient
   ) { }
 
+  get(path): Observable<any> {
+    return this.http.get(`${this.root}${this.url}/${path}`).pipe((catchError(this.errorHandler)));
+  }
+
   save(data: any): Observable<any> {
     if (data.id) {
-      return this.http.put(`${this.url}${this.path}`, data).pipe(catchError(this.errorHandler));
+      return this.http.put(`${this.root}${this.url}`, data).pipe(catchError(this.errorHandler));
     } else {
-      return this.http.post(`${this.url}${this.path}`, data).pipe(catchError(this.errorHandler));
+      return this.http.post(`${this.root}${this.url}`, data).pipe(catchError(this.errorHandler));
     }
   }
 

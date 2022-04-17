@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="ลงทะเบียน"
+                       defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <div class="ion-text-center ion-margin-top">
+      <img src="../../assets/images/icon.png"
+           height="150">
+      <h1>แก้ไขโปรไฟล์</h1>
+    </div>
+
+    <form [formGroup]="form"
+          (ngSubmit)="submit()">
+      <ion-list lines="full"
+                class="ion-no-margin">
+        <ion-item>
+          <ion-label position="stacked">ที่อยู่อีเมล์</ion-label>
+          <ion-input formControlName="email"
+                     placeholder="ระบุที่อยู่อีเมล์"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">รหัสผ่าน</ion-label>
+          <ion-input formControlName="password"
+                     placeholder="ระบุรหัสผ่าน"
+                     type="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">ชื่อ-สกุล</ion-label>
+          <ion-input formControlName="name"
+                     placeholder="ระบุชื่อ-สกุล"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">อาชีพ</ion-label>
+          <ion-input formControlName="job"
+                     placeholder="ระบุอาชีพ"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">ที่อยู่</ion-label>
+          <ion-textarea formControlName="address"
+                        placeholder="ระบุที่อยู่"></ion-textarea>
+        </ion-item>
+      </ion-list>
+
+      <div class="ion-text-center">
+        <ion-button type="submit">บันทึกข้อมูล</ion-button>
+        <ion-button type="button"
+                    color="light">ยกเลิก</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

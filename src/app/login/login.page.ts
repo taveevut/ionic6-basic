@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 import {AlertController, LoadingController} from '@ionic/angular';
 import {finalize} from 'rxjs/operators';
 import {LoginService} from './services/login.service';
@@ -17,7 +18,8 @@ export class LoginPage implements OnInit {
     private fb: FormBuilder,
     private service: LoginService,
     public loadingCtrl: LoadingController,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private route: Router
   ) {
 
     this.form = this.fb.group({
@@ -44,7 +46,12 @@ export class LoginPage implements OnInit {
             const alert = await this.alertCtrl.create({
               header: 'สำเร็จ',
               message: 'เข้าสู่ระบบได้สำเร็จ',
-              buttons: ['ตกลง'],
+              buttons: [{
+                text: 'ตกลง',
+                handler: () => {
+                  this.route.navigate(['login', 'profile', res.id]);
+                }
+              },],
             });
 
             await alert.present();

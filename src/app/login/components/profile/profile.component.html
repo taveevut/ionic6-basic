@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="โปรไฟล์"
+                       defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <div class="ion-text-center ion-margin-top">
+      <img src="../../assets/images/icon.png"
+           height="150">
+      <h1>โปรไฟล์</h1>
+    </div>
+
+    <ion-list lines="full"
+              class="ion-no-margin">
+      <ion-item>
+        <ion-label position="stacked">ที่อยู่อีเมล์</ion-label>
+        {{ data?.email }}
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">รหัสผ่าน</ion-label>
+        {{ data?.password }}
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">ชื่อ-สกุล</ion-label>
+        {{ data?.name }}
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">อาชีพ</ion-label>
+        {{ data?.job }}
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">ที่อยู่</ion-label>
+        {{ data?.address }}
+      </ion-item>
+    </ion-list>
+
+    <div class="ion-text-center">
+      <ion-button [routerLink]="['/login/profile/edit', data?.id]">แก้ไขข้อมูล</ion-button>
+    </div>
+  </div>
+</ion-content>

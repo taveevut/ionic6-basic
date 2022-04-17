@@ -1,6 +1,8 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {EditComponent} from './components/edit/edit.component';
+import {ProfileComponent} from './components/profile/profile.component';
 
 import {IonicModule} from '@ionic/angular';
 
@@ -17,6 +19,9 @@ import {LoginPage} from './login.page';
 
     ReactiveFormsModule
   ],
-  declarations: [LoginPage]
+  declarations: [
+    LoginPage,
+    ProfileComponent,
+    EditComponent]
 })
 export class LoginPageModule { }
