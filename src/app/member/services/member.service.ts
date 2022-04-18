@@ -2,35 +2,33 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
-import {environment} from './../../../environments/environment';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RegisterService {
+export class MemberService {
 
   private root = environment.appUrl;
-  private url = '/member/register';
+  private url = '/member';
 
   constructor(
     private http: HttpClient
   ) { }
 
-  get(path): Observable<any> {
+  get(path: string): Observable<any> {
     return this.http.get(`${this.root}${this.url}/${path}`).pipe((catchError(this.errorHandler)));
   }
 
-  save(data: any): Observable<any> {
+  save(path: string, data: any): Observable<any> {
     if (data.id) {
-      return this.http.put(`${this.root}${this.url}`, data).pipe(catchError(this.errorHandler));
+      return this.http.put(`${this.root}${this.url}${path}`, data).pipe(catchError(this.errorHandler));
     } else {
-      return this.http.post(`${this.root}${this.url}`, data).pipe(catchError(this.errorHandler));
+      return this.http.post(`${this.root}${this.url}${path}`, data).pipe(catchError(this.errorHandler));
     }
   }
 
   public errorHandler(error: HttpErrorResponse) {
-    // error.error instanceof ErrorEvent
-
     return throwError(error);
   }
 }

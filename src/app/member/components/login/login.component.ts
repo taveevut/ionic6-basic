@@ -3,20 +3,20 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AlertController, LoadingController} from '@ionic/angular';
 import {finalize} from 'rxjs/operators';
-import {LoginService} from './services/login.service';
+import {MemberService} from '../../services/member.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginComponent implements OnInit {
 
   form: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private service: LoginService,
+    private service: MemberService,
     public loadingCtrl: LoadingController,
     private alertCtrl: AlertController,
     private route: Router
@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
     await loading.present();
 
     if (this.form.valid) {
-      this.service.save(this.form.value)
+      this.service.save(`/login`, this.form.value)
         .pipe(finalize(() => loading.dismiss()))
         .subscribe(async (res) => {
           if (!this.isEmptyObject(res)) {
@@ -49,9 +49,10 @@ export class LoginPage implements OnInit {
               buttons: [{
                 text: 'ตกลง',
                 handler: () => {
-                  this.route.navigate(['login', 'profile', res.id]);
+                  this.form.reset();
+                  this.route.navigate(['member', 'profile', res.id]);
                 }
-              },],
+              }],
             });
 
             await alert.present();

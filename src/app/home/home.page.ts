@@ -29,11 +29,11 @@ export class HomePage {
   }
 
   gotoLoginPage() {
-    this.navCtrl.navigateForward('/login');
+    this.navCtrl.navigateForward('/member/login');
   }
 
   gotoRegisterPage() {
-    this.navCtrl.navigateForward('/register');
+    this.navCtrl.navigateForward('/member/register');
   }
 
   gototodosPage() {

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Member} from '../../models/member';
-import {LoginService} from './../../services/login.service';
+import {Member} from '../../../member/models/member';
+import {MemberService} from './../../services/member.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   data: Member;
 
   constructor(
-    private service: LoginService,
+    private service: MemberService,
     private activatedRoute: ActivatedRoute,
   ) { }
 

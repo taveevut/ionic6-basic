@@ -2,20 +2,20 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AlertController, LoadingController} from '@ionic/angular';
 import {finalize} from 'rxjs/operators';
-import {RegisterService} from './services/register.service';
+import {MemberService} from '../../services/member.service';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.page.html',
-  styleUrls: ['./register.page.scss'],
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
 })
-export class RegisterPage implements OnInit {
+export class RegisterComponent implements OnInit {
 
   form: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private service: RegisterService,
+    private service: MemberService,
     public loadingCtrl: LoadingController,
     private alertCtrl: AlertController
   ) {
@@ -40,13 +40,18 @@ export class RegisterPage implements OnInit {
     await loading.present();
 
     if (this.form.valid) {
-      this.service.save(this.form.value)
+      this.service.save(`/register`, this.form.value)
         .pipe(finalize(() => loading.dismiss()))
         .subscribe(async (res) => {
           const alert = await this.alertCtrl.create({
             header: 'สำเร็จ',
             message: 'ระบบทำการบันทึกข้อมูลได้สำเร็จ',
-            buttons: ['ตกลง'],
+            buttons: [{
+              text: 'ตกลง',
+              handler: () => {
+                this.form.reset();
+              }
+            }],
           });
 
           await alert.present();
