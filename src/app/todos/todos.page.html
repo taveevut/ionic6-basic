@@ -4,9 +4,32 @@
       <ion-back-button text="สิ่งที่ต้องทำ"
                        defaultHref="/"></ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="create()">
+        <ion-icon name="add"></ion-icon>สร้างรายการ
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item-sliding #slidingItem
+                      *ngFor="let item of items; index as i">
+      <ion-item [class.taskDone]="item.done"
+                (click)="item.done = !item.done">
+        {{ item.title }}
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger"
+                         (click)="items.splice(i,1)">
+          ลบ
+        </ion-item-option>
+        <ion-item-option color="warning"
+                         (click)="edit(item, slidingItem)">
+          แก้ไข
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
